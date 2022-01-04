@@ -1,0 +1,54 @@
+.Form {
+    @include modifier('hidden') {
+        display: none;
+    }
+
+    @include modifier('modal') {
+        //
+    }
+
+    @include modifier('block-padding') {
+        @include media-min-width(992px) {
+            padding: 70px 0 140px;
+            max-width: 700px;
+            margin: auto;
+        }
+    }
+}
+
+.NotificationSettingsForm {
+    @include element('notification') {
+        margin-bottom: 10px;
+    }
+
+    @include element('notification-name') {
+        font-weight: 700;
+    }
+
+    @include element('notification-description') {
+        color: $fw-gray;
+    }
+
+    @include element('platform') {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 25px;
+
+        @include media-min-width(768px) {
+            text-align: center;
+            & + .form-switcher .switcher {
+                margin: auto;
+            }
+        }
+    }
+}
+
+.form-group .Button {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-horizontal .control-label {
+    font-weight: 300;
+    font-size: 16px;
+}

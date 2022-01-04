@@ -1,0 +1,117 @@
+$footer-break-point: 768px;
+
+.Footer {
+    position: static;
+    height: 351px;
+    @include modifier('3') {
+        height: 3 * 50px + 1px;
+    }
+    @include modifier('4') {
+        height: 4 * 50px + 1px;
+    }
+    @include modifier('5') {
+        height: 5 * 50px + 1px;
+    }
+    @include modifier('6') {
+        height: 6 * 50px + 1px;
+    }
+    @include modifier('7') {
+        height: 7 * 50px + 1px;
+    }
+    @include modifier('8') {
+        height: 8 * 50px + 1px;
+    }
+
+    @include media-min-width($footer-break-point) {
+        height: 70px;
+    }
+
+    @include element('wrap') {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        width: 100%;
+        background-color: $fw-blue;
+        display: block;
+    }
+
+    @include element('content') {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        @include media-min-width($footer-break-point) {
+            flex-direction: row;
+        }
+    }
+
+    @include element('links') {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        width: 100%;
+        @include media-min-width($footer-break-point) {
+            width: auto;
+            display: flex;
+            flex-direction: row;
+            margin-right: auto;
+            & + .Footer__copyright {
+                margin-right: 0;
+            }
+        }
+    }
+
+    @include element('link') {
+        display: block;
+        font-weight: 300;
+        color: #FFFFFF;
+        background: transparent;
+        padding: 0;
+        line-height: 50px;
+        transition: opacity 0.25s ease;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+        user-select: none;
+        &:hover, &:focus {
+            color: #FFFFFF;
+            opacity: $hover-opacity;
+        }
+        @include media-min-width($footer-break-point) {
+            line-height: 70px;
+            padding: 0 6px;
+            font-size: 13px;
+        }
+        @include media-min-width(992px) {
+            padding: 0 10px;
+            font-size: 14px;
+        }
+        @include media-min-width(1200px) {
+            padding: 0 15px;
+            font-size: 15px;
+        }
+    }
+
+    @include element('copyright') {
+        display: block;
+        color: #FFFFFF;
+        line-height: 50px;
+        text-align: center;
+        opacity: $hover-opacity;
+        border-top: 1px solid $fw-blue-dark;
+        width: calc(100% + 30px);
+        margin-left: -15px;
+        font-size: 13px;
+        @include media-min-width($footer-break-point) {
+            padding: 0;
+            line-height: 70px;
+            width: auto;
+            margin: 0 auto;
+            display: flex;
+            align-self: center;
+            border-top: none;
+            font-size: 14px;
+        }
+    }
+}

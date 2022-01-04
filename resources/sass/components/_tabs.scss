@@ -1,0 +1,72 @@
+.Tabs {
+    margin-bottom: 15px;
+    display: flex;
+    border-radius: 4px;
+    user-select: none;
+
+    @include modifier('profile') {
+        margin-top: 15px;
+
+        @include media-min-width(768px) {
+            margin-top: 0;
+        }
+    }
+
+    @include modifier('settings') {
+        margin-bottom: 30px;
+        .Tab__name {
+            display: none;
+        }
+    }
+}
+
+.Tab {
+    flex: 1;
+    color: $fw-black;
+    text-align: center;
+    background-color: $fw-gray-light;
+    transition: 0.25s ease;
+    line-height: 50px;
+    white-space: nowrap;
+    user-select: none;
+    &:hover, &:focus {
+        color: $fw-black;
+        background-color: darken($fw-gray-light, 8%);
+    }
+    &:first-child {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    &:last-child {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    @include modifier('active') {
+        color: $fw-white;
+        background-color: $fw-red;
+        pointer-events: none;
+        &:hover, &:focus {
+            color: $fw-white;
+            background-color: $fw-red;
+        }
+    }
+
+    @include element('icon') {
+        pointer-events: none;
+        font-size: 16px;
+
+        @include media-min-width(768px) {
+            font-size: 14px;
+        }
+    }
+
+    @include element('name') {
+        pointer-events: none;
+        font-size: 14px;
+
+        @include media-min-width(992px) {
+            display: inline-block;
+        }
+    }
+}

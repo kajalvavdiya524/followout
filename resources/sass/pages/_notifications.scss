@@ -1,0 +1,139 @@
+.NotificationList {
+    //
+}
+
+.NotificationListItem {
+    padding: 15px;
+    border-top: 1px solid $fw-gray-light;
+    position: relative;
+    transition: background-color 1.5s;
+    @include clearfix();
+    &:first-child {
+        border-top: none;
+    }
+
+    @include modifier('unread') {
+        background-color: #fafafa;
+    }
+
+    @include modifier('border-bottom') {
+        border-bottom: 1px solid $fw-gray-light;
+    }
+
+    @include element('icon-wrap') {
+        position: relative;
+        background-color: #f3f3f3;
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-right: 15px;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+    }
+
+    @include element('avatar-wrap') {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-right: 15px;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+
+    @include element('icon') {
+        color: $fw-black;
+        font-size: 16px;
+        line-height: 50px;
+        display: block;
+        text-align: center;
+    }
+
+    @include element('content') {
+        margin-left: 50px + 15px;
+        display: block;
+        display: flex;
+        flex-direction: column;
+        min-height: 50px;
+        justify-content: center;
+
+        @include media-min-width(768px) {
+            max-width: calc(100% - 205px);
+        }
+    }
+
+    @include element('heading') {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        position: relative;
+    }
+
+    @include element('description') {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 400;
+        position: relative;
+    }
+
+    @include element('date-wrap') {
+        display: block;
+        position: relative;
+    }
+
+    @include element('date') {
+        font-size: 12px;
+        line-height: 22px;
+        font-weight: 400;
+        display: inline-block;
+        color: $fw-gray;
+    }
+
+    @include element('action') {
+        margin-top: 5px;
+        .Button {
+            display: block;
+        }
+        @include media-min-width(768px) {
+            .Button {
+                display: inline-block;
+            }
+        }
+    }
+
+    @include element('manage-buttons') {
+        position: relative;
+        margin-top: 10px;
+        float: left;
+        width: 100%;
+        border-top: 1px solid $fw-gray-light;
+        padding-top: 10px;
+
+        .Button {
+            display: block;
+        }
+        .Button + .Button {
+            margin-top: 10px;
+        }
+
+        @include media-min-width(768px) {
+            position: absolute;
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            float: none;
+            width: auto;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            .Button {
+                width: 125px;
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+.Section {
+    position: relative;
+    padding: 15px 0;
+
+    & + & {
+        border-top: 1px solid #ddd;
+    }
+
+    @include modifier('bg-white') {
+        background-color: #FFFFFF;
+    }
+
+    @include modifier('bg-gray') {
+        background-color: $fw-gray-lighter;
+    }
+
+    @include modifier('bg-gray-light') {
+        background-color: $fw-gray-ultra-light;
+    }
+
+    @include media-min-width(480px) {
+        padding: 30px 0;
+    }
+
+    @include media-min-width(768px) {
+        padding: 60px 0;
+    }
+
+    @include modifier('no-padding-mobile') {
+        @include media-max-width(767px) {
+            padding: 0;
+        }
+    }
+
+    @include modifier('no-padding') {
+        padding: 0;
+    }
+
+    @include modifier('padding-xs') {
+        padding: 15px 0;
+        @include media-min-width(768px) {
+            padding: 30px 0;
+        }
+    }
+
+    @include modifier('sm') {
+        padding: 30px 0;
+        @include media-min-width(768px) {
+            padding: 60px 0;
+        }
+    }
+
+    @include modifier('padding-md') {
+        padding: 30px 0;
+        @include media-min-width(768px) {
+            padding: 100px 0;
+        }
+    }
+
+    @include modifier('padding-lg') {
+        padding: 30px 0;
+        @include media-min-width(768px) {
+            padding: 150px 0;
+        }
+    }
+
+    @include modifier('padding-xl') {
+        padding: 30px 0;
+        @include media-min-width(768px) {
+            padding: 200px 0;
+        }
+    }
+}

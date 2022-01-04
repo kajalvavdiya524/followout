@@ -1,0 +1,11 @@
+.Pagination {
+    text-align: center;
+
+    @include modifier('inside-block') {
+        border-top: 1px solid $fw-gray-light;
+    }
+
+    .pagination {
+        margin: 15px auto;
+    }
+}

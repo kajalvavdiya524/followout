@@ -1,0 +1,324 @@
+.Button {
+    display: inline-block;
+    padding: 12px 15px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-weight: 300;
+    min-width: 140px;
+    max-width: 100%;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: 0.25s ease;
+
+    @include modifier('xs') {
+        padding: 5px 10px;
+        min-width: 80px;
+    }
+
+    @include modifier('sm') {
+        padding: 8px 12px;
+        min-width: 100px;
+    }
+
+    @include modifier('block') {
+        display: block;
+        width: 100%;
+    }
+
+    @include modifier('input-group') {
+        padding: 9px 12px;
+        min-width: 84px;
+    }
+
+    @include modifier('disabled') {
+        pointer-events: none;
+        opacity: 0.25;
+    }
+
+    @include modifier('default') {
+        background-color: #ADADAD;
+        border-color: #ADADAD;
+        color: #FFFFFF;
+        &:hover, &:focus {
+            background-color: #FFFFFF;
+            border-color: #ADADAD;
+            color: $fw-black;
+        }
+    }
+
+    @include modifier('primary') {
+        background-color: $fw-blue;
+        border-color: $fw-blue;
+        color: #FFFFFF;
+        &:hover, &:focus {
+            background-color: #FFFFFF;
+            border-color: $fw-blue;
+            color: $fw-blue;
+        }
+    }
+
+    @include modifier('success') {
+        background-color: $fw-green;
+        border-color: $fw-green;
+        color: #FFFFFF;
+        &:hover, &:focus {
+            background-color: #FFFFFF;
+            border-color: $fw-green;
+            color: $fw-green;
+        }
+    }
+
+    @include modifier('facebook') {
+        background-color: $fw-facebook;
+        border-color: $fw-facebook;
+        color: #FFFFFF;
+        &:hover, &:focus {
+            background-color: $fw-facebook-hover;
+            border-color: $fw-facebook-hover;
+            color: #FFFFFF;
+        }
+    }
+
+    @include modifier('danger') {
+        background-color: $fw-red;
+        border-color: $fw-red;
+        color: #FFFFFF;
+        &:hover, &:focus {
+            background-color: #FFFFFF;
+            border-color: $fw-red;
+            color: $fw-red;
+        }
+    }
+
+    @include modifier('link') {
+        background-color: transparent;
+        border-color: transparent;
+        color: $link-color;
+    }
+
+    @include modifier('plus') {
+        min-width: 21px;
+        width: 21px;
+        height: 21px;
+        line-height: 22px;
+        padding: 0;
+        border: none !important;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $fw-red;
+        font-size: 13px;
+        color: #FFFFFF;
+        &:before {
+            font-family: "Font Awesome 5 Free";
+            -webkit-font-smoothing: antialiased;
+            content: "\f067"; // fas fa-fw fa-plus
+            font-weight: 900;
+            text-align: center;
+            width: 1.25em;
+        }
+        &:hover, &:focus {
+            background-color: lighten($fw-red, 5%);
+        }
+    }
+
+    @include modifier('times') {
+        min-width: 21px;
+        width: 21px;
+        height: 21px;
+        line-height: 20px;
+        padding: 0;
+        border: none !important;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $fw-red;
+        font-size: 13px;
+        color: #FFFFFF;
+        &:before {
+            font-family: "Font Awesome 5 Free";
+            -webkit-font-smoothing: antialiased;
+            content: "\f00d"; // fas fa-fw fa-times
+            font-weight: 900;
+            text-align: center;
+            width: 1.25em;
+        }
+        &:hover, &:focus {
+            background-color: lighten($fw-red, 5%);
+        }
+    }
+
+    @include modifier('outline') {
+        &.Button--primary {
+            border-color: $fw-blue;
+            background-color: #FFFFFF;
+            color: $fw-blue;
+            &:hover, &:focus {
+                background-color: $fw-blue;
+                color: #FFFFFF;
+            }
+        }
+        &.Button--danger {
+            border-color: $fw-red;
+            background-color: #FFFFFF;
+            color: $fw-red;
+            &:hover, &:focus {
+                background-color: $fw-red;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+.ButtonGroup {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include modifier('center') {
+        justify-content: center;
+    }
+
+    @include modifier('full-width') {
+        .Button {
+            flex: 1;
+        }
+    }
+
+    .Button {
+        margin: 5px;
+    }
+}
+
+.ButtonRow {
+    display: flex;
+    flex-wrap: nowrap;
+    .Button {
+        display: flex;
+        flex: 1;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .Button + .Button {
+        margin-left: 10px;
+    }
+
+    // If we have only two buttons and we need to make a choice we can have 'or' element
+    @include element('or') {
+        padding: 0 5px;
+        line-height: 38px;
+    }
+}
+
+.ProfileShareButtons {
+    text-align: center;
+    user-select: none;
+    margin: 15px auto;
+}
+
+.FollowoutCreateButton {
+    text-align: center;
+
+    @include element('label') {
+        color: $fw-red;
+        // color: $fw-gray;
+        font-size: 16px;
+    }
+
+    @include element('button') {
+        margin-top: 15px;
+        width: 80px;
+        height: 80px;
+        border: none;
+        padding: 0;
+        background: url('/img/north-star-point-blue.svg');
+        transition: 0.25s ease;
+        &:hover, &:focus {
+            opacity: $hover-opacity;
+        }
+    }
+}
+
+.FollowhostCreateFollowoutButton {
+    display: inline-block;
+    position: relative;
+    margin-left: 5px;
+    height: 26px;
+    top: 6px;
+    @include element('button') {
+        width: 26px;
+        height: 26px;
+        background-image: url('/img/north-star-point.svg');
+        background-color: $fw-blue;
+        background-position: center center;
+        background-size: 14px auto;
+        background-repeat: no-repeat;
+        padding: 0;
+        display: inline-block;
+        position: relative;
+        border-radius: 3px;
+        transition: all 0.25s ease;
+        @include modifier('disabled') {
+            opacity: $hover-opacity !important;
+            &:hover, &:focus {
+                background-color: $fw-blue;
+            }
+        }
+        &:hover, &:focus {
+            opacity: $hover-opacity;
+            background-color: $fw-blue;
+        }
+    }
+}
+
+.ProfileButtonsWrap {
+    width: 100%;
+    text-align: center;
+    margin: 15px auto;
+    .Button {
+        text-align: left !important;
+    }
+    .Button + .Button {
+        margin-top: 10px;
+    }
+}
+
+.FollowButton {
+    border-color: $fw-blue;
+    background-color: #FFFFFF;
+    color: $fw-blue;
+    &:after {
+        content: "Subscribe";
+    }
+    &:hover, &:focus {
+        background-color: $fw-blue;
+        color: #FFFFFF;
+    }
+
+    @include modifier('following') {
+        background-color: $fw-blue;
+        color: $fw-white;
+        &:after {
+            content: "Subscribed";
+        }
+        &:hover:after, &:focus:after {
+            content: "Unsubscribe";
+        }
+        // &:hover, &:focus {
+        //     border-color: $fw-red;
+        //     background-color: $fw-red;
+        //     color: #FFFFFF;
+        // }
+    }
+}

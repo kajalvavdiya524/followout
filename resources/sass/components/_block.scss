@@ -1,0 +1,95 @@
+.Block {
+    border-radius: 2px;
+    border: 1px solid $fw-gray-light;
+    background-color: #FFFFFF;
+    width: 100%;
+    margin: auto auto 15px;
+    flex-direction: column;
+    display: flex;
+    @include media-min-width(768px) {
+        margin: auto auto 30px;
+    }
+
+    @include modifier('chat') {
+        margin-bottom: 15px;
+        border-color: #e7e8ec;
+        border-radius: 3px;
+        .Block__header {
+            border-bottom: none;
+        }
+    }
+
+    @include element('header') {
+        background-color: $fw-gray-light;
+        display: flex;
+        width: 100%;
+        line-height: 60px;
+        padding: 0 15px;
+        border-radius: 2px 2px 0 0;
+        border-bottom: 2px solid $fw-gray-light;
+
+        @include media-min-width(768px) {
+            padding: 0 30px;
+        }
+
+        @include modifier('no-border') {
+            border-bottom: none;
+        }
+    }
+
+    @include element('header-misc-info') {
+        margin-left: auto;
+        display: block;
+        height: 60px;
+        line-height: 60px;
+        text-align: right;
+
+        @include modifier('two-lines') {
+            line-height: 30px;
+        }
+    }
+
+    @include element('heading') {
+        display: block;
+        font-size: 20px;
+        line-height: inherit;
+        font-weight: 500;
+        margin: 0;
+        overflow: auto;
+        white-space: nowrap;
+        color: $fw-black;
+        @include media-min-width(576px) {
+            font-size: 22px;
+        }
+        @include media-min-width(768px) {
+            font-size: 28px;
+        }
+        @include media-min-width(992px) {
+            font-size: 30px;
+        }
+    }
+
+    @include element('body') {
+        display: block;
+        padding: 15px;
+        position: relative;
+
+        @include modifier('center') {
+            text-align: center;
+            justify-content: center;
+        }
+
+        @include modifier('no-padding') {
+            padding: 0;
+        }
+    }
+
+    @include element('footer') {
+        display: block;
+        padding: 15px;
+        border-top: 2px solid $fw-gray-light;
+        background-color: $fw-gray-light;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+}

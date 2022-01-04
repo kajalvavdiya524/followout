@@ -1,0 +1,128 @@
+.SearchTabs {
+    overflow: hidden;
+    display: flex;
+    margin: -15px -15px 15px -15px;
+    user-select: none;
+
+    @include element('link') {
+        flex: 1;
+        text-align: center;
+        font-weight: 500;
+        padding: 10px 0;
+        border-bottom: 2px solid $fw-gray-light;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        &:hover {
+            background: $fw-gray-ultra-light;
+            border-color: darken($fw-gray-light, 5%);
+        }
+        @include modifier('active') {
+            background: $fw-gray-light;
+            border-color: $fw-red;
+            &:hover, &:focus {
+                background: $fw-gray-light;
+                border-color: $fw-red;
+            }
+        }
+    }
+    @include element('tab') {
+        //
+    }
+}
+.SearchResults {
+    //
+}
+
+.SearchResult {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid $fw-gray-light;
+    &:last-child {
+        border-bottom: none;
+    }
+    @include element('picture-container') {
+        float: left;
+        width: 100px;
+        margin-right: 15px;
+        @include media-min-width(768px) {
+            width: 150px;
+        }
+    }
+
+    @include element('picture-link') {
+        &:hover {
+            opacity: $hover-opacity;
+        }
+    }
+
+    @include element('picture-buttons') {
+        margin-top: 15px;
+        text-align: center;
+        .Button + .Button {
+            margin-top: 10px;
+        }
+    }
+
+    @include element('content-container') {
+        float: left;
+        width: calc(100% - 115px);
+        @include media-min-width(768px) {
+            width: calc(100% - 165px);
+        }
+    }
+
+    @include element('picture') {
+        width: 100%;
+        height: 100%;
+        @include modifier('user') {
+            //
+        }
+        @include modifier('followout') {
+            //
+        }
+    }
+
+    @include element('title') {
+        font-weight: 700;
+        font-size: 20px;
+        color: $fw-black;
+    }
+
+    @include element('description') {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    @include element('misc') {
+        display: block;
+    }
+
+    @include element('misc-item') {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        a {
+            display: inline-block;
+            width: calc(100% - 25px);
+        }
+        .fas,
+        .far,
+        .fab {
+            color: $fw-red;
+        }
+        & + & {
+            margin-top: 10px;
+        }
+    }
+}
+
+
+.SearchFilters {
+    //
+}
+
+.SearchFilter {
+    //
+}

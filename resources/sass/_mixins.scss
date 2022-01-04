@@ -1,0 +1,66 @@
+// Block Element
+@mixin element($name) {
+    @at-root {
+        &__#{$name} {
+            @content;
+        }
+    }
+}
+
+// Block Modifier
+@mixin modifier($name) {
+    @at-root {
+        &--#{$name} {
+            @content;
+        }
+    }
+}
+
+// @alias Element
+@mixin e($name) {
+    @include element($name)  {
+        @content;
+    }
+}
+
+// @alias Modifier
+@mixin m($name) {
+    @include modifier($name) {
+        @content;
+    }
+}
+
+@mixin media-min-width($width) {
+    @media (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin media-max-width($width) {
+    @media (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin media-min-height($width) {
+    @media (min-height: $width) {
+        @content;
+    }
+}
+
+@mixin media-max-height($width) {
+    @media (max-height: $width) {
+        @content;
+    }
+}
+
+@mixin clearfix() {
+    &:after,.clearfix:before {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}

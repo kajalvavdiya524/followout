@@ -1,0 +1,138 @@
+.FeaturedFollowouts {
+    //
+}
+
+.UserCard {
+    transition: 0.25s ease;
+    background: transparent;
+    &:hover {
+        background: transparent;
+    }
+
+    a {
+        display: block;
+    }
+    a:hover > &__avatar,
+    a:hover > &__flyer {
+        opacity: $hover-opacity;
+    }
+
+    @include element('avatar') {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 2px;
+        transition: 0.25s ease;
+    }
+
+    @include element('flyer') {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        max-height: 405px;
+        border-radius: 2px;
+        transition: 0.25s ease;
+    }
+
+    @include element('name') {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: $fw-black;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    @include element('misc') {
+        font-weight: 300;
+        font-size: 14px;
+        color: $fw-gray;
+        text-align: center;
+    }
+
+    @include element('buttons') {
+        margin-top: 10px;
+    }
+}
+
+.UsersGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include element('heading') {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        color: $fw-black;
+    }
+
+    @include element('item') {
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        &:hover {
+            .UsersGrid__item-image {
+                opacity: $hover-opacity;
+            }
+        }
+    }
+
+    @include element('item-name') {
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 10px;
+        line-height: 20px;
+        color: $fw-black;
+        text-align: center;
+        @include media-min-width(992px) {
+            min-height: 40px;
+        }
+    }
+
+    @include element('item-image-wrap') {
+        position: relative;
+        display: block;
+        margin: auto;
+    }
+
+    @include element('item-image') {
+        width: auto;
+        height: auto;
+        border-radius: 2px;
+        display: block;
+        margin: auto;
+        object-fit: cover;
+        max-height: 225px;
+        position: relative;
+        transition: 0.25s ease;
+        @include media-min-width(768px) {
+            max-width: 150px;
+        }
+        @include media-min-width(992px) {
+            max-height: 260px;
+            max-width: 100%;
+        }
+    }
+
+    @include element('item-avatar') {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        border-radius: 50%;
+        right: -20px;
+        bottom: -10px;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+    }
+}
+
+#map {
+    height: 250px;
+    width: 100%;
+
+    @include media-min-width(768px) {
+        height: 350px;
+    }
+}

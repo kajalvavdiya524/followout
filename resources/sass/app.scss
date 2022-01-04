@@ -1,0 +1,290 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+
+// bootstrap-sass
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+// Forms
+.form-group--last {
+    margin-bottom: 0;
+}
+
+// Inputs
+.control-label {
+    font-weight: 400;
+
+    &.is-required::after {
+        content: ' *';
+        color: $fw-red;
+    }
+}
+
+.input-group-btn {
+    z-index: 2;
+}
+.input-group-btn:last-child > .Button {
+    z-index: 2;
+    margin-left: -1px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+// Modal
+.modal-title {
+    padding-right: 13px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer .Button + .Button {
+    margin-left: 10px;
+}
+
+// Table
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+    border-top: none;
+}
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        margin-bottom: 15px;
+    }
+}
+
+// selectize
+@import "node_modules/selectize/dist/css/selectize.default";
+.selectize-control.selectize-contact .selectize-input [data-value] .email,
+.selectize-control.selectize-contacts .selectize-input [data-value] .email {
+    opacity: 0.5;
+}
+.selectize-control.selectize-contact .selectize-input [data-value] .name + .email,
+.selectize-control.selectize-contacts .selectize-input [data-value] .name + .email {
+    margin-left: 5px;
+}
+.selectize-control.selectize-contact .selectize-input [data-value] .email:before,
+.selectize-control.selectize-contacts .selectize-input [data-value] .email:before {
+    content: '<';
+}
+.selectize-control.selectize-contact .selectize-input [data-value] .email:after,
+.selectize-control.selectize-contacts .selectize-input [data-value] .email:after {
+    content: '>';
+}
+.selectize-control.selectize-contact .selectize-dropdown .caption,
+.selectize-control.selectize-contacts .selectize-dropdown .caption {
+    font-size: 12px;
+    display: block;
+    opacity: 0.5;
+}
+.selectize-control.selectize-contact .selectize-dropdown .label,
+.selectize-control.selectize-contacts .selectize-dropdown .label {
+    font-size: 13px;
+    font-weight: 400;
+    padding: 0;
+    border-radius: 0;
+    white-space: nowrap;
+    text-align: left;
+    color: inherit;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// toastr
+@import 'node_modules/toastr/toastr';
+
+#toast-container > div {
+    padding: 15px 15px 15px 15px;
+}
+
+#toast-container > .toast-info,
+#toast-container > .toast-error,
+#toast-container > .toast-success,
+#toast-container > .toast-warning {
+    background-image: none !important;
+}
+.toast-success {
+  background-color: $fw-green;
+}
+.toast-error {
+  background-color: $fw-red;
+}
+.toast-info {
+  background-color: $fw-info;
+}
+.toast-warning {
+  background-color: $fw-warning;
+}
+
+// intl-tel-input
+.intl-tel-input {
+    width: 100%;
+}
+.intl-tel-input.allow-dropdown input, .intl-tel-input.allow-dropdown input[type=text], .intl-tel-input.allow-dropdown input[type=tel], .intl-tel-input.separate-dial-code input, .intl-tel-input.separate-dial-code input[type=text], .intl-tel-input.separate-dial-code input[type=tel] {
+    padding-right: 12px;
+}
+.intl-tel-input.separate-dial-code.iti-sdc-2 input, .intl-tel-input.separate-dial-code.iti-sdc-2 input[type=text], .intl-tel-input.separate-dial-code.iti-sdc-2 input[type=tel] {
+    padding-left: 66px + 6px;
+}
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input[type=tel] {
+    padding-left: 76px + 6px;
+}
+.intl-tel-input.separate-dial-code.iti-sdc-3 input, .intl-tel-input.separate-dial-code.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.iti-sdc-3 input[type=tel] {
+    padding-left: 74px + 6px;
+}
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
+    padding-left: 84px + 6px;
+}
+.intl-tel-input.separate-dial-code.iti-sdc-4 input, .intl-tel-input.separate-dial-code.iti-sdc-4 input[type=text], .intl-tel-input.separate-dial-code.iti-sdc-4 input[type=tel] {
+    padding-left: 82px + 6px;
+}
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input[type=tel] {
+    padding-left: 92px + 6px;
+}
+.intl-tel-input.separate-dial-code.iti-sdc-5 input, .intl-tel-input.separate-dial-code.iti-sdc-5 input[type=text], .intl-tel-input.separate-dial-code.iti-sdc-5 input[type=tel] {
+    padding-left: 90px + 6px;
+}
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-5 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-5 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-5 input[type=tel] {
+    padding-left: 100px + 6px;
+}
+
+// owl.carousel
+@import 'node_modules/owl.carousel/src/scss/owl.carousel';
+@import 'node_modules/owl.carousel/src/scss/owl.theme.default';
+
+// pickadate.js
+.picker--opened .picker__frame {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    margin: 15px auto;
+}
+
+.picker__day--today:before {
+    display: none;
+}
+.picker__weekday {
+    text-align: center;
+}
+.picker__button--close,
+.picker__button--today {
+    &:before {
+        display: none;
+    }
+}
+.picker__list {
+    padding: 0;
+}
+.picker--time .picker__box {
+    max-height: 500px;
+    overflow: auto;
+}
+
+// animate.css
+@import "node_modules/animate.css/animate";
+.delay-6s {
+    animation-delay: 6s;
+}
+.delay-7s {
+    animation-delay: 7s;
+}
+.delay-8s {
+    animation-delay: 8s;
+}
+.delay-9s {
+    animation-delay: 9s;
+}
+.delay-10s {
+    animation-delay: 10s;
+}
+
+// Components
+@import 'components/header';
+@import 'components/footer';
+@import 'components/heading';
+@import 'components/section';
+@import 'components/form';
+@import 'components/input';
+@import 'components/button';
+@import 'components/block';
+@import 'components/tabs';
+@import 'components/pagination';
+@import 'pages/common';
+@import 'pages/welcome';
+@import 'pages/about';
+@import 'pages/profile';
+@import 'pages/orders';
+@import 'pages/search';
+@import 'pages/stats';
+@import 'pages/notifications';
+@import 'pages/followout-coupons';
+@import 'pages/reward-programs';
+@import 'pages/chats';
+@import 'pages/university';
+
+*,
+*:hover,
+*:focus,
+*:active {
+    outline: 0 !important;
+}
+
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    @include media-max-width(768px) {
+        &.fixed {
+            overflow: hidden;
+        }
+
+        &.fixed .menu {
+            height: 100%;
+            overflow: auto;
+        }
+    }
+}
+
+#app {
+    min-height: 100%;
+    position: relative;
+}
+
+a {
+    text-decoration: none !important;
+    transition: 0.2s ease;
+    color: $fw-red;
+
+    &:hover, &:focus {
+        color: lighten($fw-red, 10%);
+    }
+}
+
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-top: 1px solid $fw-gray-light;
+}
+
+blockquote {
+    background: #fafafa;
+}
+
+iframe {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+@import 'helpers';

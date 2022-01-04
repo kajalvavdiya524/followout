@@ -1,0 +1,65 @@
+.PayButton {
+    text-align: center;
+    @include media-min-width(768px) {
+        //
+    }
+
+    @include element('button') {
+        @include media-min-width(768px) {
+            float: right;
+        }
+    }
+
+    @include element('cards') {
+        max-width: 225px;
+        height: auto;
+    }
+
+    @include element('item') {
+        display: block;
+        clear: both;
+        margin: 15px auto 0;
+        @include media-min-width(768px) {
+            float: right;
+        }
+    }
+}
+
+.CartTotal {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 15px 0 15px 0;
+    text-align: center;
+    display: block;
+    @include media-min-width(768px) {
+        margin: 0;
+        text-align: left;
+    }
+}
+
+.CartTable {
+    margin-bottom: 30px;
+
+    & > thead > tr > th,
+    & > thead > tr > td,
+    & > tbody > tr > th,
+    & > tbody > tr > td {
+        vertical-align: middle;
+    }
+
+    @include element('header') {
+        background: #f7f7f7;
+
+        & > th {
+            text-align: center;
+        }
+    }
+
+    @include element('col-price') {
+        width: 100px;
+    }
+
+    @include element('col-remove') {
+        width: 98px;
+    }
+}

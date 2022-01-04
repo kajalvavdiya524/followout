@@ -1,0 +1,17 @@
+.Heading {
+    font-size: 18px;
+    font-weight: 500;
+
+    @include modifier('section') {
+        font-size: 22px;
+        margin-bottom: 10px;
+        @include media-min-width(768px) {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+    }
+
+    @include modifier('blue') {
+        color: $fw-blue;
+    }
+}

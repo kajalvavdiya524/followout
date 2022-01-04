@@ -1,0 +1,14 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "CKKLYD778Q.com.followoutllc.FollowOut",
+                "paths": [
+                    "/followouts/*",
+                    "/users/*"
+                ]
+            }
+        ]
+    }
+}

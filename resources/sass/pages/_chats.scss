@@ -1,0 +1,382 @@
+$message-width: 600px;
+$chat-border-color: #e7e8ec;
+
+.ChatWrap {
+    position: relative;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    // min-height: 353px;
+    @include media-min-width(992px) {
+        flex-direction: row;
+    }
+}
+
+.ChatListWrap {
+    display: flex;
+    position: relative;
+    padding: 0 !important;
+    flex-direction: row;
+    justify-content: center;
+
+    @include media-min-width(992px) {
+        border-right: 1px solid $chat-border-color;
+        border-bottom: none;
+    }
+}
+
+.ChatList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+
+    @include media-max-width(991px) {
+        max-height: 140px;
+    }
+
+    @include media-max-width(480px) {
+        max-height: 70px;
+    }
+}
+
+.ChatListItem {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    border-top: solid 1px $chat-border-color;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+
+    &:first-child {
+        border-top: none;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    @include media-max-width(991px) {
+        &:last-child {
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+    }
+
+    @include media-min-width(992px) {
+        &:first-child {
+            border-top-left-radius: 2px;
+        }
+        &:last-child {
+            border-top: 1px solid $chat-border-color;
+        }
+        &:last-child.ChatListItem--active {
+            border-bottom: 1px solid $fw-facebook;
+        }
+    }
+
+    &:not(.ChatListItem--active):hover {
+        background-color: #F2F5F9;
+    }
+
+    @include modifier('unread') {
+        .ChatListItem__message {
+            max-width: calc(100% - 30px);
+        }
+    }
+
+    @include modifier('online') {
+        .ChatListItem__avatar:after {
+            content: '';
+            background-color: lighten($fw-green, 6%);
+            position: absolute;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            height: 14px;
+            width: 14px;
+            bottom: 0;
+            right: 0;
+        }
+        &:not(.ChatListItem--active):hover {
+            .ChatListItem__avatar:after {
+                border: 2px solid #F2F5F9;
+            }
+        }
+        &.ChatListItem--active .ChatListItem__avatar:after {
+            border: 2px solid $fw-facebook;
+        }
+    }
+
+    @include modifier('active') {
+        background-color: $fw-facebook;
+
+        .ChatListItem__title {
+            color: #FFFFFF;
+        }
+        .ChatListItem__message {
+            color: #FFFFFF;
+        }
+        .ChatListItem__date {
+            color: #FFFFFF;
+            opacity: 0.6;
+        }
+        .ChatListItem__unread {
+            color: $fw-facebook;
+            background-color: #FFFFFF;
+        }
+        & + .ChatListItem {
+            border-top: solid 1px $fw-facebook;
+        }
+    }
+
+    @include element('content') {
+        position: relative;
+        display: block;
+        width: calc(100% - 65px);
+        float: right;
+    }
+
+    @include element('avatar') {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+        float: left;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+
+    @include element('title-and-date') {
+        line-height: 25px;
+        height: 25px;
+    }
+
+    @include element('title') {
+        font-size: 14px;
+        font-weight: 500;
+        color: $fw-black;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        max-width: calc(100% - 113px);
+    }
+
+    @include element('date') {
+        font-size: 13px;
+        font-weight: 400;
+        color: $fw-gray;
+        float: right;
+    }
+
+    @include element('message') {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 25px;
+        color: $fw-gray;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    @include element('message-from') {
+        display: inline-block;
+        font-weight: 500;
+    }
+
+    @include element('unread') {
+        position: absolute;
+        right: 0;
+        color: #FFFFFF;
+        font-size: 11px;
+        font-weight: 500;
+        display: block;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+        text-align: center;
+        line-height: 20px;
+        height: 20px;
+        min-width: 20px;
+        padding: 0 6px;
+        margin-top: -22px;
+        border-radius: 18px;
+        background-color: $fw-facebook;
+    }
+}
+
+.ChatContent {
+    display: flex;
+    position: relative;
+    padding: 0 !important;
+    border-bottom: 1px solid $chat-border-color;
+    flex: 1;
+
+    @include media-min-width(992px) {
+        border-bottom: none;
+    }
+
+    @include element('wrap') {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        overflow: hidden;
+    }
+
+    @include element('messages-wrap') {
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        & > :first-child {
+            margin-top: auto;
+        }
+    }
+}
+
+.ChatMessage {
+    transition: 0.25s ease;
+    padding: 10px 0;
+    transition: background-color 2s;
+    width: 100%;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    @include modifier('unread') {
+        background-color: rgba(237, 240, 245, 0.5);
+    }
+
+    @include element('wrap') {
+        max-width: $message-width;
+        padding: 0 15px 0 15px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    @include element('avatar') {
+        display: block;
+        float: left;
+        margin-right: 15px;
+        width: 50px;
+        height: 50px;
+        user-select: none;
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+
+    @include element('message-wrap') {
+        width: calc(100% - 50px - 15px);
+        display: block;
+    }
+
+    @include element('username-wrap') {
+        line-height: 26px;
+    }
+
+    @include element('username') {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    @include element('message') {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+    }
+
+
+    @include element('date') {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        margin-top: 4px;
+        color: rgba(120, 127, 140, 0.65);
+        cursor: pointer;
+        float: right;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.ChatMessageFormWrap {
+    border-top: 1px solid $chat-border-color;
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.ChatMessageForm {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 15px;
+    width: 100%;
+    margin: auto;
+
+    @include element('input-wrap') {
+        width: 100%;
+        textarea {
+            box-sizing: border-box;
+            resize: none;
+            min-height: 40px;
+            max-height: 92px;
+            line-height: 26px;
+            overflow-x: hidden;
+
+            @include media-min-width(992px) {
+                max-height: 144px;
+            }
+        }
+    }
+
+    @include element('send-button') {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 15px;
+    }
+}
+
+.ChatNewMessagesBanner {
+    background: #eee;
+    color: $fw-gray;
+    font-size: 13px;
+    line-height: 28px;
+    border-top: 1px solid $chat-border-color;
+    border-bottom: 1px solid $chat-border-color;
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
+    width: 100%;
+}
+
+.ChatEmptyText {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    line-height: 24px;
+    color: #777;
+    text-align: center;
+    font-size: 14px;
+    line-height: 24px;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    display: block;
+    padding: 9px 15px;
+}

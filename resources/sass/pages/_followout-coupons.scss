@@ -1,0 +1,79 @@
+.FollowoutCouponList {
+    //
+}
+
+.FollowoutCouponListItem {
+    padding: 15px;
+    border-top: 1px solid $fw-gray-light;
+    position: relative;
+    @include clearfix();
+
+    @include modifier('border-bottom') {
+        border-bottom: 1px solid $fw-gray-light;
+    }
+
+    @include element('picture') {
+        background-color: #FFFFFF;
+        width: 50px;
+        min-height: 50px;
+        float: left;
+        margin-right: 15px;
+        position: relative;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+    }
+
+    @include element('content') {
+        margin-left: 50px + 15px;
+        display: block;
+        @include media-min-width(768px) {
+            max-width: calc(100% - 225px);
+        }
+    }
+
+    @include element('heading') {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        position: relative;
+    }
+
+    @include element('description') {
+        font-size: 14px;
+        font-weight: 400;
+        position: relative;
+    }
+
+    @include element('used') {
+        font-size: 14px;
+        position: relative;
+    }
+
+    @include element('manage-buttons') {
+        position: relative;
+        margin-top: 10px;
+        float: left;
+        width: 100%;
+
+        .Button {
+            display: block;
+        }
+        .Button + .Button {
+            margin-top: 10px;
+        }
+
+        @include media-min-width(768px) {
+            position: absolute;
+            margin-top: 0;
+            right: 15px;
+            top: 15px;
+            float: none;
+            width: auto;
+            .Button {
+                width: 145px;
+            }
+        }
+    }
+}

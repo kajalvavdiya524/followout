@@ -1,0 +1,193 @@
+.University {
+    @include element('top-heading') {
+        color: $fw-blue;
+        font-size: 28px;
+        font-weight: 500;
+        margin: 0 0 15px 0;
+        text-align: center;
+        @include media-min-width(768px) {
+            font-size: 38px;
+        }
+    }
+
+    @include element('heading') {
+        color: $fw-blue;
+        font-size: 24px;
+        font-weight: 500;
+        margin: 0 0 15px 0;
+        text-align: center;
+
+        @include modifier('text-left') {
+            text-align: left;
+        }
+
+        @include media-min-width(768px) {
+            font-size: 26px;
+        }
+    }
+
+    @include element('item-description') {
+        color: $fw-blue;
+        font-size: 14px;
+        text-align: center;
+        @include media-min-width(768px) {
+            font-size: 16px;
+        }
+    }
+
+    @include element('feature-list') {
+        @include modifier('no-more') {
+            list-style-type: none;
+            -webkit-padding-start: 0px;
+
+            .University__feature {
+                text-align: left;
+                font-size: 110%;
+
+                & + .University__feature {
+                    margin-top: 0;
+                }
+
+                &:before {
+                    content: "\f00d"; // fas fa-times
+                    font-weight: 900;
+                    font-family: "Font Awesome 5 Free";
+                    font-size: 14px;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    margin: 0 5px;
+                    text-align: right;
+                    color: $fw-red;
+                }
+
+                @include media-min-width(768px) {
+                    font-size: 90%;
+                }
+            }
+        }
+    }
+
+    @include element('feature') {
+        & + & {
+            margin-top: 10px;
+        }
+    }
+
+    @include element('image-wrap') {
+        border-radius: 3px;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @include element('image') {
+        border-radius: 3px;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 15px auto;
+
+        @include modifier('logo') {
+            background: $fw-blue;
+            padding: 20px 30px 40px;
+            border-radius: 5px;
+            border: none;
+
+            @include media-min-width(992px) {
+                padding: 40px 60px 80px;
+            }
+        }
+    }
+
+    @include element('screenshot-list') {
+        display: flex;
+        flex-direction: column;
+        @include media-min-width(768px) {
+            flex-direction: row;
+        }
+    }
+
+    @include element('screenshot') {
+        margin-top: 30px;
+        justify-content: center;
+        @include media-min-width(768px) {
+            flex: 1;
+            margin-top: 0;
+            margin-left: 30px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    @include element('screenshot-image') {
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        max-width: 80%;
+        margin: auto;
+        display: block;
+        height: auto;
+        @include media-min-width(768px) {
+            max-width: 100%;
+        }
+    }
+
+    @include element('screenshot-bubble') {
+        max-width: 50%;
+        display: block;
+        margin: 0 auto 20px;
+        height: auto;
+        @include media-min-width(768px) {
+            max-width: 70%;
+        }
+        @include media-min-width(992px) {
+            max-width: 50%;
+        }
+    }
+
+    @include element('subscribe-buttons') {
+        .Button {
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 10px;
+            min-width: auto;
+        }
+        .Button:first-child {
+            margin-left: 0;
+        }
+        .Button:last-child {
+            margin-right: 0;
+        }
+        @include media-min-width(520px) {
+            .Button {
+                font-size: 13px;
+            }
+        }
+        @include media-min-width(768px) {
+            .Button {
+                font-size: 16px;
+            }
+        }
+    }
+
+    @include element('subscribe-buttons-description') {
+        font-size: 80%;
+        display: flex;
+        flex-direction: row;
+        margin-top: 15px;
+
+        @include media-min-width(520px) {
+            font-size: 90%;
+        }
+    }
+
+    @include element('subscribe-buttons-empty-description') {
+        display: none;
+
+        @include media-min-width(520px) {
+            display: block;
+        }
+    }
+}
